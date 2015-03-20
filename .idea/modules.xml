@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JSONFile.iml" filepath="$PROJECT_DIR$/.idea/JSONFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/live-json-file.iml" filepath="$PROJECT_DIR$/.idea/live-json-file.iml" />
     </modules>
   </component>
 </project>
