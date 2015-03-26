@@ -1,34 +1,31 @@
 var fs = require('fs')
 
-//Define the object and the clone
-var obj = {o:{},__o:{}};
-//The location of the file
-var dest;
+module.exports.Object = function(d){
+  var o={}, __o={}, dest=d;
 
-module.exports = function(d){
-  dest = d;
-
-  //If the file doesn't exist then create it
   if(!fs.existsSync(dest)){
     fs.openSync(dest, 'w');
-    saveObj();
+    saveObj(dest, __o);
   }
 
-  //Load the file
-  obj.__o = obj.o = JSON.parse(fs.readFileSync(dest,'utf8'));
+  __o = o = JSON.parse(fs.readFileSync(dest,'utf8'));
 
-  //Update the files getter so it will update the file
-  Object.defineProperty(obj, "o", {
-    get: function(){return obj.__o}
+  Object.defineProperty(this, 'o', {
+    get: function(){
+      console.log(__o);
+      saveObj(dest, __o);
+      return __o;
+    },
+    set: function(newObj){
+      console.log(__o);
+      saveObj(dest, __o);
+      __o = newObj;
+    }
   });
 
-  return obj;
+  process.on('exit', function (){saveObj(dest, __o)});
 };
 
-//Saves the file
-var saveObj = function(){
-  fs.writeFileSync(dest, JSON.stringify(obj.__o))
+saveObj = function(dest, obj){
+  fs.writeFileSync(dest, JSON.stringify(obj));
 }
-
-//Ensures the file is saved as the process exits
-process.on('exit', function () {saveObj();});
