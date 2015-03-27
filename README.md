@@ -26,5 +26,24 @@ The file does not update immediately. Once a change has been made to a field of 
 
 ## Updates
 
+v0.2
+A version of the program is added to allow the use of the ES6 feature 'proxies'. This eliminates all of the known issues so far. To use the extra features then the 'harmony' tags must be made on startup as follows
+
+	node --harmony --harmony_proxies my_program.js
+
+The code itself is only slightly different
+
+	var livefile = require('live-json-file');
+
+	var obj = livefile.ObjectProxy("file.json");
+	var obj2 = livefile.ObjectProxy("file2.json");
+
+	obj.a = "obj 1";
+	obj2.a = "obj 2";
+	obj.b = "obj 1";
+	obj2.b = "obj 2";
+
+The use of the 'o' parameter is no longer necessary and the file updates immediately after the object is updated.
+
 v0.1
 Multiple files can now be created
