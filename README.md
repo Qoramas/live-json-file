@@ -10,17 +10,13 @@ With the following code, the files "file.json" and "file2.json" is bound to the 
 
 	var livefile = require('live-json-file');
 
-  var obj = new livefile.Object("file.json");
+	var obj = new livefile.Object("file.json");
+	var obj2 = new livefile.Object("file2.json");
 
-  var obj2 = new livefile.Object("file2.json");
-
-  obj.o.a = "obj 1";
-
-  obj2.o.a = "obj 2";
-
-  obj.o.b = "obj 1";
-
-  obj2.o.b = "obj 2";
+	obj.o.a = "obj 1";
+	obj2.o.a = "obj 2";
+	obj.o.b = "obj 1";
+	obj2.o.b = "obj 2";
   
 ## Current Major Issues
 
