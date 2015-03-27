@@ -1,6 +1,6 @@
 {
   "name": "live-json-file",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "live-json-file.js",
   "description": "Creates a live saved version of an object",
   "author": "= <=> (http://samuelhaycock.com/)"
